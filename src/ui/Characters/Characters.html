@@ -16,8 +16,11 @@
   </audio>
   <div class="theme-switch" onclick="toggleTheme()">Toggle Theme</div>
   <input type="text" id="searchInput" placeholder="Search by name">
+  <button onclick="searchCharacter()">Искать</button>
 </header>
 <div id="characterContainer" class="character-container"></div>
+<div id="resultContainer"></div>
 <script src="../../services/characters.js" defer></script>
+<script src="../../services/search.js" defer></script>
 </body>
 </html>
