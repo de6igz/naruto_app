@@ -36,17 +36,22 @@ document.addEventListener('DOMContentLoaded', function () {
 function createCharacterBlock(character) {
     const characterBlock = document.createElement('div');
     characterBlock.className = 'character-block';
+    const characterLink = document.createElement('a');
 
+    characterLink.text = 'Подробнее'
+    characterLink.href = '/character?id=' + character.id;
     const characterImage = document.createElement('img');
     characterImage.src = character.images[0]; // Используем только первое изображение
     characterImage.alt = character.name;
     characterImage.className = 'character-image';
+    characterImage.id = character.id;
 
     const characterName = document.createElement('h3');
     characterName.textContent = character.name;
 
     characterBlock.appendChild(characterImage);
     characterBlock.appendChild(characterName);
+    characterBlock.appendChild(characterLink);
 
     return characterBlock;
 }
