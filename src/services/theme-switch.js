@@ -1,3 +1,6 @@
+const audioElement = new Audio('../../resources/audio/theme-switch.mp3');
+
+
 function toggleTheme() {
     const body = document.body;
 
@@ -7,6 +10,8 @@ function toggleTheme() {
     // Сохранение выбранной темы в локальном хранилище
     const isDarkTheme = body.classList.contains('dark-theme');
     localStorage.setItem('isDarkTheme', isDarkTheme);
+    audioElement.play();
+
 }
 
 // Применение сохраненной темы при загрузке страницы
