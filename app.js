@@ -8,6 +8,10 @@ app.use(express.static(__dirname +'/src'));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/ui/StartScreen', 'StartScreen.html'));
 });
+
+app.get('/Characters', (req, res) => {
+    res.sendFile(path.join(__dirname, '/src/ui/Characters', 'Characters.html'));
+});
 app.listen(port, () => {
     console.log(`Сервер запущен на http://localhost:${port}`);
 });
