@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Info</title>
+    <link rel="stylesheet" href="ui/CharacterInfo/CharacterInfo.css">
 </head>
 <body>
-
+<header>
+    <h1>Naruto Characters</h1>
+    <audio id="themeMusic" loop>
+        <source src="../../resources/audio/theme-switch.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <div class="theme-switch" onclick="toggleTheme()">Toggle Theme</div>
+</header>
 </body>
+
+<div id="characterDetails" class="character-details"></div>
+<script src="../../services/character-info.js"></script>
 </html>

@@ -57,7 +57,6 @@ function createCharacterBlock(character) {
     const characterLink = document.createElement('a');
     characterLink.text = 'Подробнее'
     characterLink.href = '/character?id=' + character.id;
-    console.log(characterLink)
 
     const characterImage = document.createElement('img');
     characterImage.src = character.images[0]; // Используем только первое изображение

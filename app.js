@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
 app.get('/Characters', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/ui/Characters', 'Characters.html'));
 });
+
+app.get('/character', (req, res) => {
+    res.sendFile(path.join(__dirname, '/src/ui/CharacterInfo', 'CharacterInfo.html'));
+});
 app.listen(port, () => {
     console.log(`Сервер запущен на http://localhost:${port}`);
 });
