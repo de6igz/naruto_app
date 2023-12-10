@@ -1,5 +1,5 @@
-/* styles.css */
 body {
+    min-height: 100vh;
     font-family: 'Ninja Naruto', sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -22,11 +22,11 @@ header {
     display: flex;
     position: fixed;
     top: 0.1px;
+    z-index: 2; /* Установите z-index на более высокий уровень */
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding-left:10px ;
-
+    padding-left: 10px;
     padding-right: 10px;
     background-color: #ff9a14;
     color: #fff;
@@ -36,38 +36,32 @@ header {
     cursor: pointer;
 }
 
-.character-container {
-    padding-top: 600px;
+.character-details {
+    /*padding-top: 10%;*/
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.character-block {
+.character-details-block {
+    position: absolute;
+    z-index: 1; /* Установите z-index на более низкий уровень */
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 10px;
     padding: 15px;
-    width: 200px;
-    text-align: center;
+    /*width: 200px;*/
+    /*text-align: center;*/
 }
-.character-container .character-block a{
+.character-container .character-block a {
     font-family: 'Ninja Naruto', serif;
     text-decoration: none;
     color: #ff9a14;
 }
+
 .character-image {
     width: 100%;
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
-}
-
-#searchInput {
-    margin-top: 10px;
-    padding: 5px;
-}
-.search_result{
-    background-color: white ;
-    color: black;
 }

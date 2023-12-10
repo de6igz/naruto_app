@@ -20,6 +20,7 @@ body {
 
 header {
     display: flex;
+    z-index: 2;
     position: fixed;
     top: 0.1px;
     align-items: center;
@@ -37,7 +38,10 @@ header {
 }
 
 .character-container {
-    padding-top: 600px;
+    top: 0;
+    z-index: 1; /* Установите z-index на более низкий уровень */
+    position: absolute;
+    padding-top: 10%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

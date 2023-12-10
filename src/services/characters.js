@@ -1,5 +1,5 @@
 // characters.js
-const charactersAPI = 'https://narutodb.xyz/api/character?page=11&limit=20'; // Замените на реальный URL вашего API
+const charactersAPI = 'https://narutodb.xyz/api/character?page=1&limit=1431'; // Замените на реальный URL вашего API
 const audioElement = new Audio('../../resources/audio/theme-switch.mp3');
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -43,7 +43,7 @@ function createCharacterBlock(character) {
     console.log(characterLink)
 
     const characterImage = document.createElement('img');
-    characterImage.src = character.images[0]; // Используем только первое изображение
+    characterImage.src = character.images ? character.images[0] : 'Отсутствует';
     characterImage.alt = character.name;
     characterImage.className = 'character-image';
     characterImage.id = character.id;

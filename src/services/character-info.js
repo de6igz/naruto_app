@@ -1,4 +1,13 @@
+const audioElement = new Audio('../../resources/audio/theme-switch.mp3');
+
 document.addEventListener('DOMContentLoaded', function () {
+
+    const isDarkTheme = localStorage.getItem('isDarkTheme') === 'true';
+    const body = document.body;
+    if (isDarkTheme) {
+        body.classList.add('dark-theme');
+    }
+
     // Получаем параметр id из query string
     const urlParams = new URLSearchParams(window.location.search);
     const characterId = urlParams.get('id');
@@ -28,28 +37,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
 function createCharacterDetailsBlock(character) {
     const characterDetailsBlock = document.createElement('div');
     characterDetailsBlock.className = 'character-details-block';
 
     const characterImage = document.createElement('img');
-    characterImage.src = character.images[0];
+    characterImage.src = character.images ? character.images[0] : 'Отсутствует';
     characterImage.alt = character.name;
     characterImage.className = 'character-details-image';
 
     const characterName = document.createElement('h2');
-    characterName.textContent = character.name;
+    characterName.textContent = character.name || 'Отсутствует';
 
     const debutInfo = document.createElement('p');
-    debutInfo.textContent = `Debut: ${character.debut.appearsIn} (${character.debut.anime})`;
+    const debutText = character.debut ? `Debut: ${character.debut.appearsIn} (${character.debut.anime})` : 'Debut: Отсутствует';
+    debutInfo.textContent = debutText;
 
     const jutsuList = document.createElement('ul');
     jutsuList.innerHTML = 'Jutsu:';
-    character.jutsu.forEach(jutsu => {
+    if (character.jutsu && character.jutsu.length > 0) {
+        character.jutsu.forEach(jutsu => {
+            const jutsuItem = document.createElement('li');
+            jutsuItem.textContent = jutsu;
+            jutsuList.appendChild(jutsuItem);
+        });
+    } else {
         const jutsuItem = document.createElement('li');
-        jutsuItem.textContent = jutsu;
+        jutsuItem.textContent = 'Отсутствует';
         jutsuList.appendChild(jutsuItem);
-    });
+    }
 
     characterDetailsBlock.appendChild(characterImage);
     characterDetailsBlock.appendChild(characterName);
