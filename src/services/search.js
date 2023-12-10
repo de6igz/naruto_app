@@ -54,8 +54,13 @@ function createCharacterBlock(character) {
     const characterBlock = document.createElement('div');
     characterBlock.className = 'character-block';
 
+    const characterLink = document.createElement('a');
+    characterLink.text = 'Подробнее'
+    characterLink.href = '/character?id=' + character.id;
+    console.log(characterLink)
+
     const characterImage = document.createElement('img');
-    characterImage.src = character.images[0];
+    characterImage.src = character.images[0]; // Используем только первое изображение
     characterImage.alt = character.name;
     characterImage.className = 'character-image';
     characterImage.id = character.id;
@@ -65,6 +70,7 @@ function createCharacterBlock(character) {
 
     characterBlock.appendChild(characterImage);
     characterBlock.appendChild(characterName);
+    characterBlock.appendChild(characterLink);
 
     return characterBlock;
 }
