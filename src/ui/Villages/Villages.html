@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naruto Villages</title>
+    <link rel="stylesheet" href="ui/Characters/Characters.css">
+</head>
+<body>
+<header>
+  <h1>Naruto Characters</h1>
+  <audio id="themeMusic" loop>
+    <source src="../../resources/audio/theme-switch.mp3" type="audio/mp3">
+    Your browser does not support the audio tag.
+  </audio>
+  <div class="theme-switch" onclick="toggleTheme()">Toggle Theme</div>
+</header>
+<div id="villagesContainer" class="character-container"></div>
+
+
+<script src="../../services/theme-switch.js" defer></script>
+<script src="../../services/villages.js" defer></script>
+</body>
+</html>

@@ -9,10 +9,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/ui/StartScreen', 'StartScreen.html'));
 });
 
-app.get('/Characters', (req, res) => {
+app.get('/characters', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/ui/Characters', 'Characters.html'));
 });
-
+app.get('/villages', (req, res) => {
+    res.sendFile(path.join(__dirname, '/src/ui/Villages', 'Villages.html'));
+});
 app.get('/character', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/ui/CharacterInfo', 'CharacterInfo.html'));
 });
