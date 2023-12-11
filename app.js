@@ -15,6 +15,10 @@ app.get('/characters', (req, res) => {
 app.get('/villages', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/ui/Villages', 'Villages.html'));
 });
+
+app.get('/clans', (req, res) => {
+    res.sendFile(path.join(__dirname, '/src/ui/Clans', 'Clans.html'));
+});
 app.get('/character', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/ui/CharacterInfo', 'CharacterInfo.html'));
 });

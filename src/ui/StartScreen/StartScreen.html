@@ -26,7 +26,7 @@
 <div class="button-container">
   <button class="button" onclick="redirectToCharacters()" >Characters</button>
   <button class="button" onclick="redirectToVillages()">Villages</button>
-  <button class="button" onclick="showClans()">Clans</button>
+  <button class="button" onclick="redirectToClans()">Clans</button>
 </div>
 <button class="theme-switch" onclick="toggleTheme()">Сменить тему</button>
 
@@ -38,5 +38,9 @@
   }
   function redirectToVillages() {
     window.location.href = '/villages';
+  }
+
+  function redirectToClans() {
+    window.location.href = '/clans';
   }
 </script>
