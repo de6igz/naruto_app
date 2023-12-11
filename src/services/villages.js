@@ -8,20 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             const villages = data.villages;
 
-            villages.forEach((village, index) => {
-                const villageBlock = document.createElement('div');
-                villageBlock.className = 'village-block';
-
-                const villageNumber = document.createElement('span');
-                villageNumber.className = 'village-number';
-                villageNumber.textContent = `${index + 1}.`;
-
-                const villageName = document.createElement('h3');
-                villageName.textContent = village.name;
-
-                villageBlock.appendChild(villageNumber);
-                villageBlock.appendChild(villageName);
-                villagesContainer.appendChild(villageBlock);
+            villages.forEach(village => {
+                const listItem = document.createElement('li');
+                listItem.textContent = village.name;
+                villagesList.appendChild(listItem);
             });
         })
         .catch(error => {
