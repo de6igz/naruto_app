@@ -29,8 +29,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.error('Error creating character block:', error);
                 }
             });
+            caches.open('my-cache').then(function (cache) {
+                let arr  = [];
+
+                let map = new Map();
+                characters.forEach(character=>{
+                    arr.push(character.name)
+                    map.set(character.name,character.id)
+                })
+                // Сериализация данных перед сохранением в кэш
+                var serializedData = JSON.stringify(arr);
+
+                // Добавляем сериализированные данные в кэш
+                cache.put('my-data-key', new Response(serializedData));
+
+            })
         })
         .catch(error => console.error('Error fetching characters:', error));
+
 });
 
 function createCharacterBlock(character) {
