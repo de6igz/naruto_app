@@ -39,7 +39,7 @@ header {
 
 .character-container {
     top: 0;
-    z-index: 1; /* Установите z-index на более низкий уровень */
+    z-index: 1;
     position: absolute;
     padding-top: 10%;
     display: flex;

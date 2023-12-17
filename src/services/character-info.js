@@ -8,23 +8,23 @@ document.addEventListener('DOMContentLoaded', function () {
         body.classList.add('dark-theme');
     }
 
-    // Получаем параметр id из query string
+
     const urlParams = new URLSearchParams(window.location.search);
     const characterId = urlParams.get('id');
 
-    // Проверяем, есть ли параметр id в URL
+
     if (characterId) {
-        // Формируем URL для запроса
+
         const apiUrl = `https://narutodb.xyz/api/character/${characterId}`;
 
-        // Отправляем запрос на сервер
+
         fetch(apiUrl)
             .then(response => response.json())
             .then(character => {
-                // Создаем блок с информацией о персонаже
+
                 const characterDetails = createCharacterDetailsBlock(character);
 
-                // Добавляем блок на страницу
+
                 const characterDetailsContainer = document.getElementById('characterDetails');
                 characterDetailsContainer.appendChild(characterDetails);
             })

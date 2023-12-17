@@ -2,7 +2,7 @@ const villageAPI = 'https://narutodb.xyz/api/village?page=1&limit=39'
 document.addEventListener('DOMContentLoaded', function () {
     const villagesContainer = document.getElementById('villagesContainer');
 
-    // Здесь вызывайте ваш API для получения информации о деревнях
+
     fetch(villageAPI)
         .then(response => response.json())
         .then(data => {

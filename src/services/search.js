@@ -12,7 +12,7 @@ function searchCharacter() {
 
     const apiUrl = 'https://narutodb.xyz/api/character?page=1&limit=1431';
 
-    // Отправляем запрос на сервер
+
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {

@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Ninja Naruto';
     src: url('../../resources/font/njnaruto.ttf') format('ttf');
-    /* Дополнительные форматы шрифта, например, 'ttf', 'svg', могут быть добавлены в соответствующем порядке */
+
 }
 .theme-switch {
     position: fixed;

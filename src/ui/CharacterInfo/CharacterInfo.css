@@ -22,7 +22,7 @@ header {
     display: flex;
     position: fixed;
     top: 0.1px;
-    z-index: 2; /* Установите z-index на более высокий уровень */
+    z-index: 2;
     align-items: center;
     justify-content: space-between;
     width: 100%;

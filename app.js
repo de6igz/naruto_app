@@ -11,7 +11,7 @@ const port = 3002;
 const fs = require('fs');
 
 
-// Указываем Express обслуживать статические файлы из папки public
+
 app.use(express.static(__dirname +'/src'));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/ui/StartScreen', 'StartScreen.html'));

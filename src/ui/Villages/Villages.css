@@ -1,4 +1,4 @@
-/* styles.css */
+
 body {
     font-family: 'Ninja Naruto', sans-serif;
     background-color: #f4f4f4;
@@ -36,8 +36,7 @@ header {
 .theme-switch {
     cursor: pointer;
 }
-/* styles.css */
-/* Добавьте стили для нумерованного списка */
+
 .village-block {
     border: 1px solid #ccc;
     border-radius: 5px;
