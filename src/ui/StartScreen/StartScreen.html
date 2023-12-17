@@ -5,13 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naruto App</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="../../../public/assets/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../../public/assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../../public/assets/images/favicon-16x16.png">
-  <link rel="manifest" href="../../../manifest.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+
 
   <link  type="text/css" rel="stylesheet" href="ui/StartScreen/StartScreen.css">
   <script src="../../services/theme-switch.js" defer></script>
@@ -19,6 +13,67 @@
 </head>
 <body>
 <h1>Naruto App</h1>
+<script>
+
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./service-worker.js", {scope: "http://localhost:3001/characters/"}).then(
+                function (registration) {
+                  // Registration was successful
+                  console.log(
+                          "ServiceWorker registration successful with scope: ",
+                          registration.scope
+                  );
+                },
+                function (err) {
+                  // registration failed :(
+                  console.log("ServiceWorker registration failed: ", err);
+                }
+        );
+      });
+
+      navigator.serviceWorker.ready.then( function (registration) {
+
+
+        const pushServerPublicKey = "BFbdDwLauXOQE-2J_cAb-VRYRc7iNQK1Qnm8VzfkUWndT05SlUolBOGPAdPfRuyyKXAMh0bxWzlwneANPYQtmmI";
+        // subscribe and return the subscription
+        const subscription =  registration.pushManager
+                .subscribe({
+                  userVisibleOnly: true,
+                  applicationServerKey: pushServerPublicKey,
+                })
+
+  console.log(subscription)
+        fetch("http://localhost:3000/subscription", {
+          method: "POST",
+          body: JSON.stringify(subscription),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                  }
+                  return response.json();
+                })
+                .then(data => {
+                  console.log("Fetch successful:", data);
+                })
+                .catch(error => {
+                  console.error("Fetch error:", error);
+                });
+
+
+
+      });
+
+
+    }
+
+
+</script>
 <audio id="themeMusic" loop>
   <source src="../../resources/audio/theme-switch.mp3" type="audio/mp3">
   Your browser does not support the audio tag.
@@ -27,12 +82,14 @@
   <button class="button" onclick="redirectToCharacters()" >Characters</button>
   <button class="button" onclick="redirectToVillages()">Villages</button>
   <button class="button" onclick="redirectToClans()">Clans</button>
+  <button class="button" onclick="sub()">Subscribe</button>
 </div>
 <button class="theme-switch" onclick="toggleTheme()">Сменить тему</button>
 
 </body>
 </html>
 <script>
+
   function redirectToCharacters() {
     window.location.href = '/characters';
   }
