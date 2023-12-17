@@ -13,12 +13,12 @@
 </head>
 <body>
 <h1>Naruto App</h1>
-<script>
+<script type="text/javascript">
 
 
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
-        navigator.serviceWorker.register("./service-worker.js", {scope: "http://localhost:3001/characters/"}).then(
+        navigator.serviceWorker.register("/service-worker.js", {scope: "/"}).then(
                 function (registration) {
                   // Registration was successful
                   console.log(
@@ -44,7 +44,7 @@
                   applicationServerKey: pushServerPublicKey,
                 })
 
-  console.log(subscription)
+        console.log('subscription = ' + JSON.stringify(subscription))
         fetch("http://localhost:3000/subscription", {
           method: "POST",
           body: JSON.stringify(subscription),

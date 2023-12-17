@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-const port = 3001;
+const port = 3002;
 
 const fs = require('fs');
 
