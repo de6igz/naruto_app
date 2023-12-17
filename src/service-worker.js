@@ -6,7 +6,7 @@ self.addEventListener('push', function(event) {
     // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
     const options = {
         body: "Buzz! Buzz!",
-        icon: "https://i.pinimg.com/originals/5c/8f/e4/5c8fe49d0218d0f35706df1459ddf25e.jpg",
+        icon: "https://i.stack.imgur.com/1rCh2.jpg?s=48&g=1",
         vibrate: [200, 100, 200, 100, 200, 100, 200],
         tag: "vibration-sample",
     }

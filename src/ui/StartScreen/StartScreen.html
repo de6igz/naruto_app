@@ -33,12 +33,12 @@
         );
       });
 
-      navigator.serviceWorker.ready.then( function (registration) {
+      navigator.serviceWorker.ready.then( async function (registration) {
 
 
         const pushServerPublicKey = "BFbdDwLauXOQE-2J_cAb-VRYRc7iNQK1Qnm8VzfkUWndT05SlUolBOGPAdPfRuyyKXAMh0bxWzlwneANPYQtmmI";
         // subscribe and return the subscription
-        const subscription =  registration.pushManager
+        const subscription = await registration.pushManager
                 .subscribe({
                   userVisibleOnly: true,
                   applicationServerKey: pushServerPublicKey,
